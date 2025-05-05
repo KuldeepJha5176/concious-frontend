@@ -1,10 +1,12 @@
 
 import React from 'react'
-
+import { Button } from './components/button'
 function App() {
   return (
     <div>
-      hi there
+      <Button variant="primary" onClick={() => alert("Hello")}>
+        Hello
+      </Button>
     </div>
   )
 }

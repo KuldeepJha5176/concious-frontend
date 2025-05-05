@@ -30,3 +30,15 @@ export interface InputProps {
     onKeyDown?: React.KeyboardEventHandler<HTMLInputElement>;
     endICon? : ReactElement;
   }
+
+  export interface CardProps {
+    title: string;
+    type?: string;
+    content?: string;
+    url?: string;
+    imageUrl?: string | null;
+    setdelete?: () => void;
+    setNotes?: () => void;
+    index?: number;
+    time: string;
+  }
