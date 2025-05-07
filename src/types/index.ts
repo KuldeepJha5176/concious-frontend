@@ -66,3 +66,22 @@ export interface PushButtonsProps {
   size: "sm" | "md" | "lg";
   onClick?: () => void;
 }
+
+export interface SearchBoxProps {
+  onChipSelect: (chip: string | null) => void;
+  setLoading: (loading: boolean) => void;
+  setContent: (
+    content: {
+      _id: string;
+      type: string;
+      link: string;
+      title: string;
+      content: string;
+      createdAt: Date;
+      imageUrl?: string;
+    }[]
+  ) => void;
+  setAnswer: (amswer: string) => void;
+  searchText: string; // Add this
+  setSearchText: (text: string) => void; // Add this
+}
