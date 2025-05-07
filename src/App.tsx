@@ -3,6 +3,7 @@ import LinkIcon from "@mui/icons-material/Link";
 import { Button } from "./components/Button";
 import SearchIcon from "@mui/icons-material/Search";
 import { Chips } from "./components/Chips";
+import Card from "./components/Card";
 
 function App() {
   return (
