@@ -59,3 +59,10 @@ export interface CommonMondalProp {
   WrongButtonDisabled?: boolean;
   ButtonDisabled?: boolean;
 }
+
+export interface PushButtonsProps {
+  variant: "opaque" | "transparent" | "opaque2" | "bold";
+  icon: ReactElement;
+  size: "sm" | "md" | "lg";
+  onClick?: () => void;
+}
