@@ -85,3 +85,17 @@ export interface SearchBoxProps {
   searchText: string; // Add this
   setSearchText: (text: string) => void; // Add this
 }
+
+export type ModalProps = {
+  open: boolean;
+  onClose: () => void;
+  onContentAdded?: (newContent: {
+    _id: string;
+    type: string;
+    link: string;
+    title: string;
+    content: string;
+    createdAt: Date;
+  }) => void;
+  setToastLoading: (loading: boolean) => void;
+};
