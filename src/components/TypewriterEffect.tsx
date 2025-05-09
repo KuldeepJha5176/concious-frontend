@@ -1,21 +1,28 @@
-// import React from 'react'
-
 import { useEffect, useState } from "react";
 
-export default function TypewriterEffect({ text }: { text: string }) {
-  const [displayText, SetDisplayText] = useState("");
+interface TypewriterEffectProps {
+  text: string;
+  delay?: number;
+}
+
+export default function TypewriterEffect({ 
+  text, 
+  delay = 3 
+}: TypewriterEffectProps) {
+  const [displayText, setDisplayText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     if (currentIndex < text.length) {
       const timer = setTimeout(() => {
-        SetDisplayText((prev) => prev + text[currentIndex]);
+        setDisplayText((prev) => prev + text[currentIndex]);
         setCurrentIndex((prev) => prev + 1);
-      }, 3);
+      }, delay);
 
       return () => clearTimeout(timer);
     }
-  }, [currentIndex, text]);
+  }, [currentIndex, text, delay]);
 
-  return <div>{displayText}</div>;
+  // Use span instead of div to avoid invalid nesting in a <p> element
+  return <span>{displayText}</span>;
 }

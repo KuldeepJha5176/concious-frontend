@@ -13,6 +13,11 @@ const DarkModeToggle: React.FC<DarkModeToggleProps> = ({ themeText }) => {
   );
 
   useEffect(() => {
+    console.log(
+      "DarkModeToggle: Theme changed to",
+      darkMode ? "dark" : "light"
+    );
+
     if (darkMode) {
       document.documentElement.classList.add("dark");
       localStorage.setItem("theme", "dark");
@@ -20,20 +25,33 @@ const DarkModeToggle: React.FC<DarkModeToggleProps> = ({ themeText }) => {
       document.documentElement.classList.remove("dark");
       localStorage.setItem("theme", "light");
     }
+
+    // Trigger a custom event that DropDown can listen for
+    window.dispatchEvent(new Event("themechange"));
   }, [darkMode]);
+
+  const handleToggle = () => {
+    console.log(
+      "DarkModeToggle: Button clicked, toggling from",
+      darkMode ? "dark" : "light"
+    );
+    setDarkMode(!darkMode);
+  };
 
   return (
     <Button
       variant="drop"
-      startIcon={darkMode ? (
-        <DarkMode style={{ fontSize: "16px" }} />
-      ) : (
-        <LightMode style={{ fontSize: "16px" }} />
-      )}
+      startIcon={
+        darkMode ? (
+          <DarkMode style={{ fontSize: "16px" }} />
+        ) : (
+          <LightMode style={{ fontSize: "16px" }} />
+        )
+      }
       size="sm"
-      onClick={() => setDarkMode(!darkMode)}
+      onClick={handleToggle}
     >
-      {themeText} {/* Correct way to use the prop */}
+      {themeText}
     </Button>
   );
 };

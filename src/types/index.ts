@@ -22,7 +22,7 @@ export interface InputProps {
   // onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder: string;
   variant: "primary" | "secondary";
-  reference?: React.RefObject<HTMLInputElement> | undefined;
+  reference?: React.RefObject<HTMLInputElement> | null;
   maxlength?: number;
   type?: string;
   required?: boolean;
