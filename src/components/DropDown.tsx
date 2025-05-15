@@ -4,22 +4,15 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { useNavigate } from "react-router-dom";
 import { GitHub, Person, Star } from "@mui/icons-material";
-// Import the correct component name
 import DarkModeToggle from "./DarkModeToggle";
 import { Button } from "./Button";
 import axios from "axios";
 
-// Define TypeScript types
-interface DropDownProps {}
-
-const DropDown: React.FC<DropDownProps> = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+function DropDown() {
+  const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
-  const dropdownRef = useRef<HTMLDivElement | null>(null);
-  const [themeText, setThemeText] = useState<string>(
-    localStorage.getItem("theme") === "dark" ? "Dark Mode" : "Light Mode"
-  );
-  const [stars, setStars] = useState<number | null>(null);
+  const dropdownRef = useRef(null);
+  const [stars, setStars] = useState(null);
 
   const toggleDropDown = () => {
     setIsOpen((prev) => !prev);
@@ -52,44 +45,14 @@ const DropDown: React.FC<DropDownProps> = () => {
   }, []);
 
   useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
-      ) {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setIsOpen(false);
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
-
-  // Listen for theme changes to update the theme text
-  useEffect(() => {
-    const handleStorageChange = () => {
-      setThemeText(
-        localStorage.getItem("theme") === "dark" ? "Dark Mode" : "Light Mode"
-      );
-    };
-
-    window.addEventListener("storage", handleStorageChange);
-
-    // Also set up a MutationObserver to watch for class changes on documentElement
-    const observer = new MutationObserver(() => {
-      const isDark = document.documentElement.classList.contains("dark");
-      setThemeText(isDark ? "Dark Mode" : "Light Mode");
-    });
-
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
-
-    return () => {
-      window.removeEventListener("storage", handleStorageChange);
-      observer.disconnect();
     };
   }, []);
 
@@ -104,14 +67,14 @@ const DropDown: React.FC<DropDownProps> = () => {
 
       <div
         className={`absolute md:bottom-auto bottom-10 md:top-12 md:right-0 right-4 md:mt-2 w-40 
-         flex flex-col items-start  
-         
-        transition-all duration-200 transform top-14
-        ${
-          isOpen
-            ? "opacity-100 translate-y-0 visible"
-            : "opacity-0 -translate-y-2 invisible"
-        }`}
+     flex flex-col items-start  
+     
+    transition-all duration-200 transform top-14
+    ${
+      isOpen
+        ? "opacity-100 translate-y-0 visible"
+        : "opacity-0 -translate-y-2 invisible"
+    }`}
       >
         <ul className="w-full flex rounded-lg shadow-lg flex-col bg-zinc-700 items-start dark:bg-white dark:text-black text-zinc-200">
           <li className="px-1 py-1 border-b-[.01rem] border-zinc-500 dark:border-zinc-400 w-full">
@@ -144,6 +107,9 @@ const DropDown: React.FC<DropDownProps> = () => {
                 }
                 startIcon={<GitHub style={{ fontSize: "medium" }} />}
                 size="sm"
+                onClick={() => {
+                  toggleDropDown();
+                }}
               >
                 {`GitHub (${stars !== null ? stars : "0"})`}
               </Button>
@@ -151,8 +117,7 @@ const DropDown: React.FC<DropDownProps> = () => {
           </li>
 
           <li className="dark:border-zinc-400 px-1 py-1 w-full">
-            {/* Use the DarkModeToggle component */}
-            <DarkModeToggle themeText={themeText} />
+            <DarkModeToggle />
           </li>
 
           <li className="px-1 py-1 w-full">
@@ -172,7 +137,6 @@ const DropDown: React.FC<DropDownProps> = () => {
       </div>
     </div>
   );
-};
+}
 
-// Make sure to export as default
 export default DropDown;

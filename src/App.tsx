@@ -2,8 +2,8 @@ import { Dashboard } from "./pages/Dashboard";
 import { Auth } from "./pages/Auth";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomePage from "./pages/HomePage";
-import { Provider } from 'react-redux';
-import { store } from './store/store';
+import { Provider } from "react-redux";
+import { store } from "./store/store";
 
 const router = createBrowserRouter([
   { path: "/", element: <HomePage /> },

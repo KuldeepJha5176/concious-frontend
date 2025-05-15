@@ -5,6 +5,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+@theme  {
+ 
+  --font-poppins: "Poppins", sans-serif;
+  --font-playfair: "Playfair Display", serif;
+  --font-recoleta: "Recoleta", serif;
+  --font-instrument: "Instrument Serif", serif;
+  --color-primary: #242421;
+  --color-secondary: #171717;
+  --animation-smooth-landing: smoothLanding 0.5s ease-out forwards
+  @keyframes smoothLanding {
+    0% {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+
+
+
+
+}
+
 
 ::-webkit-scrollbar {
   width: 6px;

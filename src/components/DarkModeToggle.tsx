@@ -2,38 +2,54 @@ import { useEffect, useState } from "react";
 import { DarkMode, LightMode } from "@mui/icons-material";
 import { Button } from "./Button";
 
-// Define the props type
-interface DarkModeToggleProps {
-  themeText: string;
-}
+const DarkModeToggle = () => {
+  // Initialize state from localStorage or system preference
+  const [isDark, setIsDark] = useState(() => {
+    // Check localStorage first
+    if (localStorage.getItem("theme") === "dark") {
+      return true;
+    }
+    // Fall back to system preference
+    if (localStorage.getItem("theme") === "light") {
+      return false;
+    }
+    // If nothing in localStorage, use system preference
+    return window.matchMedia("(prefers-color-scheme: dark)").matches;
+  });
 
-const DarkModeToggle: React.FC<DarkModeToggleProps> = ({ themeText }) => {
-  const [darkMode, setDarkMode] = useState(
-    localStorage.getItem("theme") === "dark"
-  );
-
+  // Apply theme effect
   useEffect(() => {
-    if (darkMode) {
+    // Update DOM
+    if (isDark) {
       document.documentElement.classList.add("dark");
+      document.documentElement.classList.remove("light");
       localStorage.setItem("theme", "dark");
     } else {
       document.documentElement.classList.remove("dark");
+      document.documentElement.classList.add("light");
       localStorage.setItem("theme", "light");
     }
-  }, [darkMode]);
+  }, [isDark]);
+
+  // Toggle theme function
+  const toggleTheme = () => {
+    setIsDark(prev => !prev);
+  };
 
   return (
     <Button
       variant="drop"
-      startIcon={darkMode ? (
-        <DarkMode style={{ fontSize: "16px" }} />
-      ) : (
-        <LightMode style={{ fontSize: "16px" }} />
-      )}
+      startIcon={
+        isDark ? (
+          <DarkMode style={{ fontSize: "medium" }} />
+        ) : (
+          <LightMode style={{ fontSize: "medium" }} />
+        )
+      }
       size="sm"
-      onClick={() => setDarkMode(!darkMode)}
+      onClick={toggleTheme}
     >
-      {themeText} {/* Correct way to use the prop */}
+      {isDark ? "Dark Mode" : "Light Mode"}
     </Button>
   );
 };
