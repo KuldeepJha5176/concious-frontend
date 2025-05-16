@@ -1,6 +1,6 @@
 // import React from 'react'
 import { CircleX } from "lucide-react";
-import { Button } from "./Button";
+import { Button } from "./Button.tsx";
 import clsx from "clsx";
 import { CommonMondalProp } from "../types";
 

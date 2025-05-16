@@ -1,5 +1,5 @@
 import LinkIcon from "@mui/icons-material/Link";
-import { Button } from "./Button";
+import { Button } from "./Button.tsx";
 import AddIcon from "@mui/icons-material/Add";
 import axios from "axios";
 import DropDown from "./DropDown";

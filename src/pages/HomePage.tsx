@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { Button } from "../components/Button";
+import { Button } from "../components/Button.tsx";
 import { useEffect, useState } from "react";
 import image1 from "../assets/image.png";
 import image2 from "../assets/image2.png";

@@ -1,5 +1,5 @@
 import { Add } from "@mui/icons-material";
-import { Button } from "./Button";
+import { Button } from "./Button.tsx";
 import { PushButtons } from "./PushButtons";
 import {  PanelRightOpen } from "lucide-react";
 

@@ -5,7 +5,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import { useNavigate } from "react-router-dom";
 import { GitHub, Person, Star } from "@mui/icons-material";
 import DarkModeToggle from "./DarkModeToggle";
-import { Button } from "./Button";
+import { Button } from "./Button.tsx";
 import axios from "axios";
 
 function DropDown() {

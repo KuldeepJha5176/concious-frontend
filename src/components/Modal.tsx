@@ -1,7 +1,7 @@
 import { CircleX, Loader2 } from "lucide-react";
-import { Button } from './Button';
+import { Button } from './Button.tsx';
 import { Chips } from "./Chips";
-import { Input } from "./Input";
+import { Input } from "./Input.tsx";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import ReactQuill from "react-quill";

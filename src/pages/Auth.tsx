@@ -1,6 +1,6 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { Button } from "../components/Button";
-import { Input } from "../components/Input";
+import { Button } from "../components/Button.tsx";
+import { Input } from "../components/Input.tsx";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { CircleX, Loader2 } from "lucide-react";
