@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../components/Button.tsx";
 import { useEffect, useState } from "react";
-import image from "../assets/Image.png";
+import image1 from "../assets/image.png";
 import image2 from "../assets/image2.png";
 import image3 from "../assets/image3.png";
 import image4 from "../assets/image4.png";
@@ -40,7 +40,7 @@ export default function HomePage() {
           {/* <div className={` ${isLoaded ? "size-100" : "size-1"}, duration-200`}> */}
 
           <img
-            src={image}
+            src={image1}
             alt="Decor 1"
             className="absolute md:left-12 h-28 md:h-48 object-cover -top-14 md:-top-6 border-4 md:border-8 rounded-xl md:rounded-3xl border-gray-500/10 hover:rotate-6 transition-all hover:shadow-2xl duration-300 left-6 md:w-64 w-36 z-10 rotate-12"
           />
