@@ -1,5 +1,5 @@
 import { CircleX, Loader2 } from "lucide-react";
-import { Button } from "./Button";
+import { Button } from './Button';
 import { Chips } from "./Chips";
 import { Input } from "./Input";
 import { useEffect, useRef, useState } from "react";

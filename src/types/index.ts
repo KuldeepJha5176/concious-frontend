@@ -22,7 +22,7 @@ export interface InputProps {
   // onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder: string;
   variant: "primary" | "secondary";
-  reference?: React.RefObject<HTMLInputElement> | null;
+  reference?: React.RefObject<HTMLInputElement | null>;
   maxlength?: number;
   type?: string;
   required?: boolean;
@@ -48,7 +48,7 @@ export interface CommonMondalProp {
   onClose: () => void;
   onConfirm?: () => void;
   startIcon?: ReactElement;
-  Message?: string | JSX.Element;
+  Message?: string |  React.ReactNode; 
   Message2?: string;
   ButtonMessage?: React.ReactNode;
   WrongButtonMessage?: React.ReactNode;

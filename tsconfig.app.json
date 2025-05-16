@@ -6,6 +6,8 @@
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
+    "jsx": "react-jsx",
+    "types": ["vite/client"],
 
     /* Bundler mode */
     "moduleResolution": "bundler",
