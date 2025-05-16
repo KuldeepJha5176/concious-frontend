@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { DarkMode, LightMode } from "@mui/icons-material";
-import { Button } from "./Button.tsx";
+import { Button } from "./Button";
 
 const DarkModeToggle = () => {
   // Initialize state from localStorage or system preference

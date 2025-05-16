@@ -9,7 +9,7 @@ import axios from "axios";
 import { Delete } from "../icons/Delete";
 import CommonMondal from "../components/CommonMondal";
 import { Copy, CopyCheck, Link, Link2Off, Loader2 } from "lucide-react";
-import { Button } from "../components/Button.tsx";
+import { Button } from "../components/Button";
 import clsx from "clsx";
 import { ArrowBack } from "@mui/icons-material";
 import { PushButtons } from "../components/PushButtons";
