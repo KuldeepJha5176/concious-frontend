@@ -6,7 +6,7 @@ import image2 from "../assets/image2.png";
 import image3 from "../assets/image3.png";
 import image4 from "../assets/image4.png";
 
-export default function HomePage(){
+export default function HomePage() {
   const navigate = useNavigate();
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
   const [hoverLogo, setHoverLogo] = useState<boolean>(false);
