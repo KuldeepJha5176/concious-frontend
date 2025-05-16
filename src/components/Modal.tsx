@@ -1,5 +1,5 @@
 import { CircleX, Loader2 } from "lucide-react";
-import { Button } from './Button';
+import { Button } from "./Button";
 import { Chips } from "./Chips";
 import { Input } from "./Input";
 import { useEffect, useRef, useState } from "react";
@@ -24,8 +24,8 @@ export function Modal({
   onContentAdded,
   setToastLoading,
 }: ModalProps) {
-  const titleRef = useRef<HTMLInputElement | null>(null);
-  const LinkRef = useRef<HTMLInputElement | null>(null);
+  const titleRef = useRef<HTMLInputElement>(null);
+  const LinkRef = useRef<HTMLInputElement>(null);
   const [noteContent, setNoteContent] = useState("");
   const [selectedChip, setSelectedChip] = useState<string | null>("Url");
   const [error, setError] = useState<string | null>(null);

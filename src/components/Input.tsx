@@ -6,13 +6,13 @@ interface InputProps {
   // onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder: string;
   variant: "primary" | "secondary";
-  reference? : React.RefObject<HTMLInputElement> | undefined;
-  maxlength? : number;
-  type? : string;
+  reference?: React.RefObject<HTMLInputElement>;
+  maxlength?: number;
+  type?: string;
   required?: boolean;
   onChange?: () => void;
   onKeyDown?: React.KeyboardEventHandler<HTMLInputElement>;
-  endICon? : ReactElement;
+  endICon?: ReactElement;
 }
 
 const variantstyles = {
@@ -22,7 +22,16 @@ const variantstyles = {
     "w-full px-2 py-2 md:py-2 bg-zinc-100  border border-gray-300 rounded-lg shadow text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400",
 };
 
-export function Input({ placeholder, variant, reference, maxlength, required, type, onKeyDown, endICon }: InputProps) {
+export function Input({
+  placeholder,
+  variant,
+  reference,
+  maxlength,
+  required,
+  type,
+  onKeyDown,
+  endICon,
+}: InputProps) {
   return (
     <div className="relative w-full">
       <input
@@ -45,4 +54,3 @@ export function Input({ placeholder, variant, reference, maxlength, required, ty
     </div>
   );
 }
-
